@@ -1,7 +1,7 @@
 const spawnPos = [686.245, 577.950, 130.461];
 
 on('onClientGameTypeStart', () => {
-    exports.spawnmanager.setAutoSpanCallback(() => {
+    exports.spawnmanager.setAutoSpawnCallback(() => {
         exports.spawnmanager.spawnPlayer({
             x: spawnPos[0],
             y: spawnPos[1],
