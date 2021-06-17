@@ -14,8 +14,7 @@ on('onGameTypeStart', () => {
                 ]
             })
         });
-
-    })
+    });
 
     exports.spawnmanager.setAutoSpawn(true)
     exports.spawnmanager.forceRespawn()
