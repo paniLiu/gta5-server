@@ -20,7 +20,41 @@ on('onClientGameTypeStart', () => {
     exports.spawnmanager.forceRespawn()
 })
 
-RegisterCommand('car', (source, args, raw) => {
+
+Delay = (ms) => new Promise(res => setTimeout(res, ms));
+
+RegisterCommand('car', async (source, args, raw) => {
+
+    let model = "adder";
+
+    if (args.length > 0) {
+        model = args[0].toString();
+    }
+
+    const hash = GetHashKey(model);
+    if (!IsModelInCdimage(hash) || !IsModelAVehicle(hash)) {
+        emit('chat:addMessage', {
+            args: [`It might have been a good thing that you tried to spawn a ${model}. Who even wants their spawning to actually ^*succeed?`]
+        });
+        return;
+    }
+
+    RequestModel(hash);
+    while (!HasModelLoaded(hash)) {
+        await Delay(500);
+    }
+
+    const ped = PlayerPedId();
+
+    const coords = GetEntityCoords(ped);
+
+    const vehicle = CreateVehicle(hash, coords[0], coords[1], coords[2], GetEntityHeading(ped), true, false);
+
+    SetPedIntoVehicle(ped, vehicle, -1);
+
+    SetEntityAsNoLongerNeeded(vehicle);
+    SetModelAsNoLongerNeeded(model);
+    
     emit('chat:addMessage', {
         args: [
             `I wish I could spawn this ${(args.length > 0 ? `${args[0]} or ` : ``)} adder but owner was too lazy. :(`,
