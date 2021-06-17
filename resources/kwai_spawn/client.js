@@ -19,3 +19,11 @@ on('onClientGameTypeStart', () => {
     exports.spawnmanager.setAutoSpawn(true)
     exports.spawnmanager.forceRespawn()
 })
+
+RegisterCommand('car', (source, args, raw) => {
+    emit('chat:addMessage', {
+        args: [
+            `I wish I could spawn this ${(args.length > 0 ? `${args[0]} or ` : ``)} adder but owner was too lazy. :(`,
+        ]
+    });
+}, false);
