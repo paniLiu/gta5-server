@@ -8,7 +8,7 @@ repository 'https://github.com/citizenfx/cfx-server-data'
 
 resource_type 'gametype' { name = 'Freeroam' }
 
-client_script 'basic_client.lua'
+client_script 'client.js'
 
 game 'common'
 fx_version 'adamant'
