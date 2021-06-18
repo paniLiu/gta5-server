@@ -162,7 +162,7 @@ $(window).ready(function () {
 
 	$('#withdraw_all_btn').on('click', function () {
 		$.post('http://esx_atm/withdraw', JSON.stringify({
-			amount: document.playerData.bankAmount
+			amount: document.playerData.bankAmount,
 		}));
 
 		$('#withdraw_amount').val(0);
