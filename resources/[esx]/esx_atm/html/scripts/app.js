@@ -1,4 +1,4 @@
-withdraw = (num) => {
+var withdraw = (num) => {
 	window.alert('!!!!?');
 	if(num === 0) {
 		num = document.playerData.bankAmount;
@@ -8,7 +8,7 @@ withdraw = (num) => {
 	}));
 }
 
-deposit = (num) => {
+var deposit = (num) => {
 	if(num === 0) {
 		num = document.playerData.money;
 	}
