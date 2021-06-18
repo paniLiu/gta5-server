@@ -25,11 +25,29 @@ end)
 
 RegisterNUICallback('deposit', function(data, cb)
 	TriggerServerEvent('esx_atm:deposit', data.amount)
+	ESX.TriggerServerCallback('esx:getPlayerData', function(data)
+		SendNUIMessage({
+			showMenu = true,
+			player = {
+				money = data.money,
+				accounts = data.accounts
+			}
+		})
+	end)
 	cb('ok')
 end)
 
 RegisterNUICallback('withdraw', function(data, cb)
 	TriggerServerEvent('esx_atm:withdraw', data.amount)
+	ESX.TriggerServerCallback('esx:getPlayerData', function(data)
+		SendNUIMessage({
+			showMenu = true,
+			player = {
+				money = data.money,
+				accounts = data.accounts
+			}
+		})
+	end)
 	cb('ok')
 end)
 
