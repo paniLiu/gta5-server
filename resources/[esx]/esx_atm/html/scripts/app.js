@@ -7,15 +7,15 @@ $(window).ready(function () {
 			$('#container').fadeIn();
 			$('#menu').fadeIn();
 			$('#deposit_all_btn').text('$' + data.player.money);
-			document.playerData = data.player;
+			document.playerData = {money: data.player.money, bankAmount: 0};
 
 			let bankAmount = 0;
-			document.playerData.bankAmount = bankAmount;
 			for (let i = 0; i < data.player.accounts.length; i++) {
 				if (data.player.accounts[i].name == 'bank') {
 					bankAmount = data.player.accounts[i].money;
 				}
 			}
+			document.playerData.bankAmount = bankAmount;
 			$('#bank').text('$' + bankAmount);
 			$('#money').text('$' + data.player.money);
 			$('#withdraw_all_btn').text('$' + bankAmount);
