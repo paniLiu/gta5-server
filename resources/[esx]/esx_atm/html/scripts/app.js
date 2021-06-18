@@ -8,20 +8,14 @@ $(window).ready(function () {
 			$('#deposit_amount').val(data.player.money);
 
 			let bankAmount = 0;
-			let cash = 0;
 			for (let i = 0; i < data.player.accounts.length; i++) {
 				if (data.player.accounts[i].name == 'bank') {
 					bankAmount = data.player.accounts[i].money;
 				}
-				if (data.player.accounts[i].name == 'cash') {
-					cash = data.player.accounts[i].money;
-				}
 			}
-
-			$('#withdraw_amount').val(bankAmount);
-			
 			$('#bank').val('$' + bankAmount);
-			$('#money').val('$' + cash);
+			$('#money').val('$' + data.player.money);
+			$('#withdraw_amount').val(bankAmount);
 		} else if (data.hideAll) {
 			$('#container').fadeOut();
 		}
