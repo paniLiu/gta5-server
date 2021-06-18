@@ -6,7 +6,7 @@ $(window).ready(function () {
 		if (data.showMenu) {
 			$('#container').fadeIn();
 			$('#menu').fadeIn();
-			$('#deposit_all_btn').text(data.player.money);
+			$('#deposit_all_btn').text('$' + data.player.money);
 			document.playerData = data.player;
 
 			let bankAmount = 0;
@@ -18,7 +18,7 @@ $(window).ready(function () {
 			}
 			$('#bank').text('$' + bankAmount);
 			$('#money').text('$' + data.player.money);
-			$('#withdraw_all_btn').text(bankAmount);
+			$('#withdraw_all_btn').text('$' + bankAmount);
 		} else if (data.hideAll) {
 			$('#container').fadeOut();
 		}
