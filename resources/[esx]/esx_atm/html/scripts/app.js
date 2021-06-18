@@ -13,8 +13,8 @@ $(window).ready(function () {
 					bankAmount = data.player.accounts[i].money;
 				}
 			}
-			$('#bank').val('$' + bankAmount);
-			$('#money').val('$' + data.player.money);
+			$('#bank').text('$' + bankAmount);
+			$('#money').text('$' + data.player.money);
 			$('#withdraw_amount').val(bankAmount);
 		} else if (data.hideAll) {
 			$('#container').fadeOut();
