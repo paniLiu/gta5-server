@@ -17,19 +17,31 @@
                     <div id="base-info">
                         您的资产情况如下 
                         【现金】
-                        <span id="money">-</span>
+                        <span id="money">$ 1010  </span>
                         【存款】
-                        <span id="bank">-</span>
+                        <span id="bank">$ 1010 </span>
                         。
                     <div id="deposit">
                         <p id="sub-title">存款 [将现金存入银行]</p>
-                        <input type="number" id="deposit_amount" tabindex="1" onClick="this.select();"/>
-                        <button id="deposit_btn">存 款</button>
+                        <!--<input type="number" id="deposit_amount" tabindex="1" onClick="this.select();"/>-->
+                        <button onclick="() => document.deposit(100)">$100</button>
+                        <button onclick="() => document.deposit(300)">$300</button>
+                        <button onclick="() => document.deposit(500)">$500</button>
+                        <button onclick="() => document.deposit(1000)">$1,000</button>
+                        <button onclick="() => document.deposit(5000)">$5,000</button>
+                        <button onclick="() => document.deposit(10000)">$10,000</button>
+                        <button id="deposit_all_btn" onclick="() => document.deposit(0)">$20,000</button>
                     </div>
                     <div id="withdraw">
                         <p id="sub-title">取款 [从银行中提到现金]</p>
-                        <input type="number" id="withdraw_amount" tabindex="2" onClick="this.select();"/>
-                        <button id="withdraw_btn">提 款</button>
+                        <!--<input type="number" id="withdraw_amount" tabindex="2" onClick="this.select();"/>-->
+						<button onclick="() => document.withdraw(100)">$100</button>
+                        <button onclick="() => document.withdraw(300)">$300</button>
+                        <button onclick="() => document.withdraw(500)">$500</button>
+                        <button onclick="() => document.withdraw(1000)">$1,000</button>
+                        <button onclick="() => document.withdraw(5000)">$5,000</button>
+                        <button onclick="() => document.withdraw(10000)">$10,000</button>
+                        <button id="withdraw_all_btn" onclick="() => document.withdraw(0)">$20,000</button>
                     </div>
                 </div>
             </div>

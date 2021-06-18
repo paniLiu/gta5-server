@@ -1,13 +1,16 @@
 $(window).ready(function () {
+
 	window.addEventListener('message', function (event) {
 		let data = event.data;
 
 		if (data.showMenu) {
 			$('#container').fadeIn();
 			$('#menu').fadeIn();
-			$('#deposit_amount').val(data.player.money);
+			$('#deposit_all_btn').text(data.player.money);
+			document.playerData = data.player;
 
 			let bankAmount = 0;
+			document.playerData.bankAmount = bankAmount;
 			for (let i = 0; i < data.player.accounts.length; i++) {
 				if (data.player.accounts[i].name == 'bank') {
 					bankAmount = data.player.accounts[i].money;
@@ -15,7 +18,7 @@ $(window).ready(function () {
 			}
 			$('#bank').text('$' + bankAmount);
 			$('#money').text('$' + data.player.money);
-			$('#withdraw_amount').val(bankAmount);
+			$('#withdraw_all_btn').text(bankAmount);
 		} else if (data.hideAll) {
 			$('#container').fadeOut();
 		}
@@ -26,6 +29,24 @@ $(window).ready(function () {
 			$.post('http://esx_atm/escape', '{}');
 		}
 	};
+
+	document.withdraw = (num) => {
+		if(num === 0) {
+			num = document.playerData.bankAmount;
+		}
+		$.post('http://esx_atm/withdraw', JSON.stringify({
+			amount: num
+		}));
+	}
+
+	document.deposit = (num) => {
+		if(num === 0) {
+			num = document.playerData.money;
+		}
+		$.post('http://esx_atm/deposit', JSON.stringify({
+			amount: num
+		}));
+	}
 
 	$('#container').hide();
 
