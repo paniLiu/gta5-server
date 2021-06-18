@@ -100,7 +100,7 @@ $(window).ready(function () {
 
 	$('#deposit_all_btn').on('click', function () {
 		$.post('http://esx_atm/deposit', JSON.stringify({
-			amount: document.playerData.money;
+			amount: document.playerData.money,
 		}));
 
 		$('#deposit_amount').val(0);
