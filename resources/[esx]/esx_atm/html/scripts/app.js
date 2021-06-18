@@ -98,6 +98,14 @@ $(window).ready(function () {
 		$('#deposit_amount').val(0);
 	})
 
+	$('#deposit_all_btn').on('click', function () {
+		$.post('http://esx_atm/deposit', JSON.stringify({
+			amount: document.playerData.money;
+		}));
+
+		$('#deposit_amount').val(0);
+	})
+
 	$('#withdraw_1_btn').on('click', function () {
 		$.post('http://esx_atm/withdraw', JSON.stringify({
 			amount: '100'
@@ -152,13 +160,13 @@ $(window).ready(function () {
 	});
 	
 
-	// $('#withdraw_all_btn').on('click', function () {
-	// 	$.post('http://esx_atm/withdraw', JSON.stringify({
-	// 		amount: '10000'
-	// 	}));
+	$('#withdraw_all_btn').on('click', function () {
+		$.post('http://esx_atm/withdraw', JSON.stringify({
+			amount: document.playerData.bankAmount
+		}));
 
-	// 	$('#withdraw_amount').val(0);
-	// });
+		$('#withdraw_amount').val(0);
+	});
 
 	// $('#withdraw_amount').on("keyup", function (e) {
 	// 	if (e.keyCode == 13) {
