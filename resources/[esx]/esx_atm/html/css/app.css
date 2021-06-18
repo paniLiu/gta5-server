@@ -19,7 +19,6 @@ body {
 #container {
 	position: absolute;
 	background: #FFF;
-    border: 1px solid #eee;
     border-radius: 8px;
 	height: 500px;
 	width: 600px;
@@ -28,6 +27,7 @@ body {
 	margin: -250px 0 0 -300px;
 	cursor: default;
     overflow: hidden;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1)
 }
 
 #header {
@@ -66,7 +66,7 @@ body {
 
 #base-info span {
     color: green;
-	font-family: DINCondensed,DINCondensed-Bold;
+    font-family: DINCondensed,DINCondensed-Bold;
 }
 
 #menu div {
