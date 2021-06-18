@@ -31,6 +31,7 @@ $(window).ready(function () {
 	};
 
 	document.withdraw = (num) => {
+		window.alert('!!!!?');
 		if(num === 0) {
 			num = document.playerData.bankAmount;
 		}
