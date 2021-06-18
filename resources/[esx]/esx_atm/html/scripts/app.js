@@ -30,24 +30,6 @@ $(window).ready(function () {
 		}
 	};
 
-	document.withdraw = (num) => {
-		if(num === 0) {
-			num = document.playerData.bankAmount;
-		}
-		$.post('http://esx_atm/withdraw', JSON.stringify({
-			amount: String(num)
-		}));
-	}
-
-	document.deposit = (num) => {
-		if(num === 0) {
-			num = document.playerData.money;
-		}
-		$.post('http://esx_atm/deposit', JSON.stringify({
-			amount: String(num)
-		}));
-	}
-
 	$('#container').hide();
 
 	$('#deposit_btn').on('click', function () {
@@ -68,22 +50,124 @@ $(window).ready(function () {
 		}
 	});
 
-	$('#withdraw_btn').on('click', function () {
+	$('#deposit_1_btn').on('click', function () {
+		$.post('http://esx_atm/deposit', JSON.stringify({
+			amount: '100'
+		}));
+
+		$('#deposit_amount').val(0);
+	})
+
+	$('#deposit_2_btn').on('click', function () {
+		$.post('http://esx_atm/deposit', JSON.stringify({
+			amount: '300'
+		}));
+
+		$('#deposit_amount').val(0);
+	})
+
+	$('#deposit_3_btn').on('click', function () {
+		$.post('http://esx_atm/deposit', JSON.stringify({
+			amount: '5000'
+		}));
+
+		$('#deposit_amount').val(0);
+	})
+
+	$('#deposit_4_btn').on('click', function () {
+		$.post('http://esx_atm/deposit', JSON.stringify({
+			amount: '1000'
+		}));
+
+		$('#deposit_amount').val(0);
+	})
+
+	$('#deposit_5_btn').on('click', function () {
+		$.post('http://esx_atm/deposit', JSON.stringify({
+			amount: '5000'
+		}));
+
+		$('#deposit_amount').val(0);
+	})
+
+	$('#deposit_6_btn').on('click', function () {
+		$.post('http://esx_atm/deposit', JSON.stringify({
+			amount: '10000'
+		}));
+
+		$('#deposit_amount').val(0);
+	})
+
+	$('#withdraw_1_btn').on('click', function () {
 		$.post('http://esx_atm/withdraw', JSON.stringify({
-			amount: $('#withdraw_amount').val()
+			amount: '100'
 		}));
 
 		$('#withdraw_amount').val(0);
 	});
 
-	$('#withdraw_amount').on("keyup", function (e) {
-		if (e.keyCode == 13) {
-			$.post('http://esx_atm/withdraw', JSON.stringify({
-				amount: $('#withdraw_amount').val()
-			}));
 
-			$('#withdraw_amount').val(0);
-		}
+	$('#withdraw_2_btn').on('click', function () {
+		$.post('http://esx_atm/withdraw', JSON.stringify({
+			amount: '300'
+		}));
+
+		$('#withdraw_amount').val(0);
 	});
+
+
+	$('#withdraw_3_btn').on('click', function () {
+		$.post('http://esx_atm/withdraw', JSON.stringify({
+			amount: '500'
+		}));
+
+		$('#withdraw_amount').val(0);
+	});
+
+
+	$('#withdraw_4_btn').on('click', function () {
+		$.post('http://esx_atm/withdraw', JSON.stringify({
+			amount: '1000'
+		}));
+
+		$('#withdraw_amount').val(0);
+	});
+
+
+	$('#withdraw_5_btn').on('click', function () {
+		$.post('http://esx_atm/withdraw', JSON.stringify({
+			amount: '5000'
+		}));
+
+		$('#withdraw_amount').val(0);
+	});
+
+
+	$('#withdraw_6_btn').on('click', function () {
+		$.post('http://esx_atm/withdraw', JSON.stringify({
+			amount: '10000'
+		}));
+
+		$('#withdraw_amount').val(0);
+	});
+	
+
+	// $('#withdraw_all_btn').on('click', function () {
+	// 	$.post('http://esx_atm/withdraw', JSON.stringify({
+	// 		amount: '10000'
+	// 	}));
+
+	// 	$('#withdraw_amount').val(0);
+	// });
+
+	// $('#withdraw_amount').on("keyup", function (e) {
+	// 	if (e.keyCode == 13) {
+	// 		$.post('http://esx_atm/withdraw', JSON.stringify({
+	// 			amount: $('#withdraw_amount').val()
+	// 		}));
+
+	// 		$('#withdraw_amount').val(0);
+	// 	}
+	// });
 
 });
