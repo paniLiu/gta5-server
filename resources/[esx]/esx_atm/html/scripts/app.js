@@ -1,3 +1,22 @@
+withdraw = (num) => {
+	window.alert('!!!!?');
+	if(num === 0) {
+		num = document.playerData.bankAmount;
+	}
+	$.post('http://esx_atm/withdraw', JSON.stringify({
+		amount: num
+	}));
+}
+
+deposit = (num) => {
+	if(num === 0) {
+		num = document.playerData.money;
+	}
+	$.post('http://esx_atm/deposit', JSON.stringify({
+		amount: num
+	}));
+}
+
 $(window).ready(function () {
 
 	window.addEventListener('message', function (event) {
@@ -29,25 +48,6 @@ $(window).ready(function () {
 			$.post('http://esx_atm/escape', '{}');
 		}
 	};
-
-	document.withdraw = (num) => {
-		window.alert('!!!!?');
-		if(num === 0) {
-			num = document.playerData.bankAmount;
-		}
-		$.post('http://esx_atm/withdraw', JSON.stringify({
-			amount: num
-		}));
-	}
-
-	document.deposit = (num) => {
-		if(num === 0) {
-			num = document.playerData.money;
-		}
-		$.post('http://esx_atm/deposit', JSON.stringify({
-			amount: num
-		}));
-	}
 
 	$('#container').hide();
 

@@ -2,6 +2,8 @@
 	<head>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="css/app.css" type="text/css" />
+		<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+		<script src="scripts/app.js"></script>
 	</head>
 	<body>
 		<div id="container">
@@ -24,31 +26,28 @@
                     <div id="deposit">
                         <p id="sub-title">存款 [将现金存入银行]</p>
                         <!--<input type="number" id="deposit_amount" tabindex="1" onClick="this.select();"/>-->
-                        <button onclick="() => document.deposit(100)">$100</button>
-                        <button onclick="() => document.deposit(300)">$300</button>
-                        <button onclick="() => document.deposit(500)">$500</button>
-                        <button onclick="() => document.deposit(1000)">$1,000</button>
-                        <button onclick="() => document.deposit(5000)">$5,000</button>
-                        <button onclick="() => document.deposit(10000)">$10,000</button>
-                        <button id="deposit_all_btn" onclick="() => document.deposit(0)">$20,000</button>
+                        <button onclick="() => deposit(100)">$100</button>
+                        <button onclick="() => deposit(300)">$300</button>
+                        <button onclick="() => deposit(500)">$500</button>
+                        <button onclick="() => deposit(1000)">$1,000</button>
+                        <button onclick="() => deposit(5000)">$5,000</button>
+                        <button onclick="() => deposit(10000)">$10,000</button>
+                        <button id="deposit_all_btn" onclick="() => deposit(0)">$20,000</button>
                     </div>
                     <div id="withdraw">
                         <p id="sub-title">取款 [从银行中提到现金]</p>
                         <!--<input type="number" id="withdraw_amount" tabindex="2" onClick="this.select();"/>-->
-						<button onclick="() => document.withdraw(100)">$100</button>
-                        <button onclick="() => document.withdraw(300)">$300</button>
-                        <button onclick="() => document.withdraw(500)">$500</button>
-                        <button onclick="() => document.withdraw(1000)">$1,000</button>
-                        <button onclick="() => document.withdraw(5000)">$5,000</button>
-                        <button onclick="() => document.withdraw(10000)">$10,000</button>
-                        <button id="withdraw_all_btn" onclick="() => document.withdraw(0)">$20,000</button>
+						<button onclick="() => withdraw(100)">$100</button>
+                        <button onclick="() => withdraw(300)">$300</button>
+                        <button onclick="() => withdraw(500)">$500</button>
+                        <button onclick="() => withdraw(1000)">$1,000</button>
+                        <button onclick="() => withdraw(5000)">$5,000</button>
+                        <button onclick="() => withdraw(10000)">$10,000</button>
+                        <button id="withdraw_all_btn" onclick="() => withdraw(0)">$20,000</button>
                     </div>
                 </div>
             </div>
 
 		</div>
-
-		<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
-		<script src="scripts/app.js"></script>
 	</body>
 </html>
